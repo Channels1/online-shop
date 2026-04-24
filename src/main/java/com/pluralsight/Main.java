@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -54,7 +53,7 @@ public class Main {
     }
 
     public static void formattedSpace() {
-        System.out.print("/n/n");
+        System.out.print("\n\n");
     }
 
     public static HashMap<String, Product> loadInventory() {
@@ -80,12 +79,12 @@ public class Main {
             e.printStackTrace();
 
         }
-        return products;
+        return product;
 
     }
 
     public static void displayProducts(Scanner uKey) {
-        HashMap<String, Product> products = loadInventory();
+        HashMap<String, Product> product = loadInventory();
         boolean run = true;
 
         while (run) {
@@ -97,17 +96,21 @@ public class Main {
 
             switch (action) {
                 case 1:
-                    for (Product p : products.values()) {
+                    //searchProduct()
+                    break;
+                case 2:
+                    //Add
+                    break;
+                case 3:
+                    for (Product p : product.values()) {
                         System.out.printf("%s: $%.2f%n", p.getProductName(), p.getProductPrice());
                     }
                     formattedSpace();
                     break;
-                case 2:
-                    break;
-                case 3:
-                    break;
                 case 0:
+                    formattedSpace();
                     break;
+
                 default:
                     System.out.println();
                     uKey.nextLine();
