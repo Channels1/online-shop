@@ -52,9 +52,11 @@ public class Main {
 
         }
     }
+
     public static void formattedSpace() {
         System.out.print("/n/n");
     }
+
     public static HashMap<String, Product> loadInventory() {
         HashMap<String, Product> products = new HashMap<>();
         try {
@@ -69,7 +71,7 @@ public class Main {
                 double price = Double.parseDouble(splitProductItem[2]);
                 String department = splitProductItem[3];
 
-                Product product = new Product(productId,productName,price,department);
+                Product product = new Product(productId, productName, price, department);
 
             }
 
@@ -77,11 +79,46 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
 
-        }return products;
+        }
+        return products;
 
     }
+
     public static void displayProducts(Scanner uKey) {
+        HashMap<String, Product> products = loadInventory();
+        boolean run = true;
+
+        while (run) {
+            System.out.println("\t1 Search");
+            System.out.println("\t2 Add");
+            System.out.println("\t3 View all");
+            System.out.println("\t0 go back");
+            int action = uKey.nextInt();
+
+            switch (action) {
+                case 1:
+                    for (Product p : products.values()) {
+                        System.out.printf("%s: $%.2f%n", p.getProductName(), p.getProductPrice());
+                    }
+                    formattedSpace();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println();
+                    uKey.nextLine();
+                    formattedSpace();
+
+            }
+
+
+
+
+        }
 
     }
-
 }
