@@ -26,20 +26,27 @@ public class Main {
             switch (userOption) {
                 case 1:
                     // displayProdocuts(uKey);
+                    formattedSpace();
                     break;
                 case 2:
                     // displayCart(uKey);
+                    formattedSpace();
                     break;
                 case 0:
                     System.out.println("Thanks for visiting");
+                    formattedSpace();
                     uKey.close();
                     System.exit(0);
                     break;
                 default:
                     System.out.println("Error!");
+                    formattedSpace();
                     uKey.nextLine();
             }
 
         }
+    }
+    public static void formattedSpace() {
+        System.out.print("/n/n");
     }
 }
