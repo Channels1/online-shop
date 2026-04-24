@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -53,15 +55,33 @@ public class Main {
     public static void formattedSpace() {
         System.out.print("/n/n");
     }
-    public static void displayProducts(Scanner uKey) {
+    public static HashMap<String, Product> loadInventory() {
+        HashMap<String, Product> products = new HashMap<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/products.csv"));
+            String productItem;
+            br.readLine();
+            while ((productItem = br.readLine()) != null) {
+                String[] splitProductItem = productItem.split(Pattern.quote("|"));
+
+                String productId = splitProductItem[0];
+                String productName = splitProductItem[1];
+                double price = Double.parseDouble(splitProductItem[2]);
+                String department = splitProductItem[3];
+
+                Product product = new Product(productId,productName,price,department);
+
+            }
 
 
         } catch (IOException e) {
             e.printStackTrace();
 
-        }
+        }return products;
+
+    }
+    public static void displayProducts(Scanner uKey) {
+
     }
 
 }
