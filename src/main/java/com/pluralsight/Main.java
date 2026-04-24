@@ -71,6 +71,7 @@ public class Main {
                 String department = splitProductItem[3];
 
                 Product product = new Product(productId, productName, price, department);
+                products.put(productId, product);
 
             }
 
@@ -79,7 +80,7 @@ public class Main {
             e.printStackTrace();
 
         }
-        return product;
+        return products;
 
     }
 
@@ -99,7 +100,7 @@ public class Main {
                     //searchProduct()
                     break;
                 case 2:
-                    //Add
+                    //AddProduct()
                     break;
                 case 3:
                     for (Product p : product.values()) {
@@ -118,10 +119,34 @@ public class Main {
 
             }
 
+        }
 
+    }
+    public static void searchProduct(Scanner uKey) {
+        HashMap<String, Product> product = loadInventory();
+        System.out.print("What are you looking for? ");
+        String result = uKey.nextLine();
+        System.out.println("What is the price range? ");
+        double resultPrice = uKey.nextDouble();
+
+        for (Product p : product.values()) {
+
+            boolean resultMatch = true;
+
+            if (result != null && !result.isEmpty()){
+                if (p.getProductName().toLowerCase().contains(result)) {
+                    resultMatch = false;
+                }
+        }
+            if (resultPrice)
+
+        }
 
 
         }
 
+
+
     }
-}
+
+
