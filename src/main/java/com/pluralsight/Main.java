@@ -5,9 +5,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner uKey = new Scanner(System.in);
-        while (true) {
 
-            System.out.println("Welcome to the online store");
+        System.out.println("Welcome to the online store");
+
+        homeScreen(uKey);
+
+    }
+
+    public static void homeScreen(Scanner uKey) {
+        while (true) {
             System.out.println("Select from the following option");
             System.out.println("\t1 Display products");
             System.out.println("\t2 Display cart");
@@ -19,22 +25,20 @@ public class Main {
 
             switch (userOption) {
                 case 1:
-                    // displayProdocuts();
+                    // displayProdocuts(uKey);
                     break;
                 case 2:
-                    // displayCart();
+                    // displayCart(uKey);
                     break;
                 case 0:
                     System.out.println("Thanks for visiting");
+                    uKey.close();
                     System.exit(0);
                     break;
                 default:
                     System.out.println("Error!");
                     uKey.nextLine();
             }
-
-
-
 
         }
     }
