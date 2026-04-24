@@ -1,5 +1,9 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -25,7 +29,7 @@ public class Main {
 
             switch (userOption) {
                 case 1:
-                    // displayProdocuts(uKey);
+                    displayProducts(uKey);
                     formattedSpace();
                     break;
                 case 2:
@@ -49,4 +53,15 @@ public class Main {
     public static void formattedSpace() {
         System.out.print("/n/n");
     }
+    public static void displayProducts(Scanner uKey) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("src/main/resources/products.csv"));
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+
 }
